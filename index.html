@@ -3,22 +3,47 @@
   <head>
     <meta charset="utf-8">
     <title>Hangman</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
   <body>
+    <div class="wrapper">
+        <div class="game-space">
           <h1>Hangman</h1>
+          <h1>In Spaaaaace!<h1>
+          <br />
+          <br />
+          <h2>Press Space Bar to start playing!</h2>
+          <audio id="audio" controls style="display:none">
+  <source src="assets/audio/wheatley.mp3" type="audio/mp3">
+          </audio>
 
-          <div id="game">
-            <p>Press Space Bar to start playing!</p>
-          </div>
-  <div>
-    <h2 id="current-result"></h2>
-    <h4>Guesses:</h4>
-      <p id="previous-guesses"></p>
-    <h4>Guesses Remaining:</h4>
-  </div>
+          <p>Wins:
+            <span id="wins">0</span>
+          </p>
+
+          <p>Losses:
+            <span id="losses">0</span>
+          </p>
+
+          <p>Current Word: </p>
+          <p>
+            <span id="current-word"></span>
+          </p>
+
+          <p>Letters Already Guessed:</p>
+          <p>
+            <span id="guessed-letters"></span>
+          </p>
+
+          <p>Guesses Remaining:</p>
+          <p>
+            <span id="guesses"></span>
+          </p>
+      </div>
+    </div>
 
       <script src="assets/javascript/game.js" charset="utf-8"></script>
-
+    <footer class="footer">&copy;2018 Grady Houston</footer>
   </body>
 </html>
