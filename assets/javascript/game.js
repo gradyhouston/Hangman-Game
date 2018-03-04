@@ -52,7 +52,16 @@ var loserAlerts = [
   "Sheesh, that was embarrassing",
   "You should probably just go home",
   "You died.."
-]
+];
+
+
+// var winnerAudioArray = [
+//   "../audio/winner/winner.mp3,"
+//   "../audio/winner/winner-2.mp3",
+//   "../audio/winner/winner-3.mp3",
+//   "../audio/winner/winner-4.mp3",
+//   "../audio/winner/winner-5.mp3"
+// ];
 
 // Variables
 var spaceVocab = [];
@@ -60,6 +69,7 @@ var dashes = [];
 var alreadyGuessed = [];
 var winnerAlertsArray = [];
 var loserAlertsArray = [];
+// var randomWinnerAudioArray = [];
 var wins = 0;
 var losses = 0;
 var guessesRemaining = 15;
@@ -72,6 +82,31 @@ var currentWord = document.getElementById("current-word");
 var guessedLetters = document.getElementById("guessed-letters");
 var guesses = document.getElementById("guesses");
 
+$(document).ready(function(){
+
+	var tl = new TimelineLite()
+	,inter = 30
+  ,speed = 1
+  ,$text = $('.text');
+  function animInfinite(){
+    $('.text').each(function(index,val) {
+      index = index + 1;
+      TweenMax.fromTo(
+        $(this), speed, {autoAlpha:0},{autoAlpha:0+(0.01*index),delay:0.1*index});
+     });
+    TweenMax.to(
+      $('.text:nth-child(30)'), speed,{autoAlpha:1.5,delay:3.5}
+    );
+  }
+  $('.typer input').keyup(function() {
+    //Stop Everything First
+    TweenMax.killAll(false, true, false);
+    TweenMax.set($text, {autoAlpha:0});
+    $text.text(this.value);
+     animInfinite();
+  });
+  animInfinite();
+});
 
 document.onkeyup = function(event) {
 
@@ -85,11 +120,15 @@ document.onkeyup = function(event) {
 });
 
 
+
   // Randomly picks an alert if you win
   winnerAlertsArray = winnerAlerts[Math.floor(Math.random() * winnerAlerts.length)];
 
   // Randomly picks an alert if you lose
   loserAlertsArray = loserAlerts[Math.floor(Math.random() * loserAlerts.length)];
+
+  // Trying to get a random audio file to play based on win or lose
+  // randomWinnerAudioArray = winnerAudioArray[Math.floor(Math.random() * winnerAudioArray.length)];
 
   // Randomly picks a word from the words array
   spaceVocab = words[Math.floor(Math.random() * words.length)].split("");
@@ -150,11 +189,15 @@ document.onkeyup = function(event) {
 
       // Check to see if player won and alerts random alert
       if (spaceVocab.join("") == dashes.join("")) {
+        // document.getElementById("audio-winner").src = “./assets/audio/winner”.join(“”)];
+        document.getElementById("audio-winner").play();
         alert(winnerAlertsArray);
         wins++;
         winsTotal.textContent = wins;
         reset();
       }
+
+
 
       } else {
       // Decerements the number of guesses left by one
@@ -164,6 +207,7 @@ document.onkeyup = function(event) {
 
       // If out of guesses, the player losses
       if (guessesRemaining === 0) {
+        document.getElementById("audio-loser").play();
         alert(loserAlertsArray);
         losses++;
 
