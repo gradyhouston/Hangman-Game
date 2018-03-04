@@ -82,9 +82,40 @@
         <div class="game-space">
           <!-- <h1>Hangman</h1>
           <h1>In Spaaaaace!<h1> -->
-          <!-- <br /> -->
           <br />
-          <h1>Press Space Bar to start playing!</h1>
+
+          <!-- Flashing SVG "Press Space Bar to Start Playing" -->
+    <svg viewBox="0 0 1000 100">
+
+      <!-- Gradient -->
+      <radialGradient id="gr-radial"
+                  cx="50%" cy="50%" r="70%">
+
+                  <!-- Animation for radius of gradient -->
+           <animate attributeName="r"
+                    values="0%;150%;100%;0%"
+                    dur="5s" repeatCount="indefinite" />
+           <!-- Animation for colors of stop-color -->
+           <stop stop-color="#FFF" offset="0">
+             <animate attributeName="stop-color"
+                      values="#333;#FFF;#FFF;#333"
+                      dur="5s" repeatCount="indefinite" />
+           </stop>
+           <stop stop-color="rgba(55,55,55,0)" offset="100%"/>
+         </radialGradient>
+
+      <!-- Text -->
+      <text text-anchor="middle"
+        font-size="60px;"
+        x="50%"
+        y="50%"
+        dy=".35em"
+        class="text">
+          Press Space Bar to Start Playing
+      </text>
+    </svg>
+
+          <!-- <h1>Press Space Bar to start playing!</h1> -->
           <br />
           <audio id="audio" controls style="display:none">
           <source src="assets/audio/games_begin.mp3" type="audio/mp3">

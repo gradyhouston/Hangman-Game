@@ -56,7 +56,7 @@ var loserAlerts = [
 
 
 // var winnerAudioArray = [
-//   "../audio/winner/winner.mp3,"
+//   "../audio/winner/winner.mp3",
 //   "../audio/winner/winner-2.mp3",
 //   "../audio/winner/winner-3.mp3",
 //   "../audio/winner/winner-4.mp3",
