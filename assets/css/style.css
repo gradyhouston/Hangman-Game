@@ -7,7 +7,6 @@ body {
 }
 
 .game-wrapper {
-  fill: url(#gr-radial);
   color: gray;
   border: 2px gray solid;
   text-shadow: 2px 2px black;
@@ -20,19 +19,21 @@ body {
   justify-content: center;
 }
 
-h1 {
+/* h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  fill: url(#gr-radial);
-}
+  background: -webkit-linear-gradient(#333, gray, gray, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+} */
 
-p {
+p  {
   font-size: 22px;
   display: flex;
   align-content: center;
   justify-content: center;
-  fill: url(#gr-radial);
+
 }
 
 .footer {
@@ -48,7 +49,6 @@ p {
   margin-top: 175px;
   /* margin-left: 150px; */
   text-shadow: 2px 2px black;
-  fill: url(#gr-radial);
 }
 
 /* Below here is experimental CSS */
