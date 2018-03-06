@@ -55,13 +55,21 @@ var loserAlerts = [
 ];
 
 
-// var winnerAudioArray = [
-//   "../audio/winner/winner.mp3",
-//   "../audio/winner/winner-2.mp3",
-//   "../audio/winner/winner-3.mp3",
-//   "../audio/winner/winner-4.mp3",
-//   "../audio/winner/winner-5.mp3"
-// ];
+var winnerAudioArray = [
+  "assets/audio/winner/winner1.mp3",
+  "assets/audio/winner/winner2.mp3",
+  "assets/audio/winner/winner3.mp3",
+  "assets/audio/winner/winner4.mp3",
+  "assets/audio/winner/winner5.mp3"
+];
+
+var loserAudioArray = [
+  "assets/audio/loser/loser1.mp3",
+  "assets/audio/loser/loser2.mp3",
+  "assets/audio/loser/loser3.mp3",
+  "assets/audio/loser/loser4.mp3",
+  "assets/audio/loser/loser5.mp3"
+];
 
 // Variables
 var spaceVocab = [];
@@ -69,10 +77,11 @@ var dashes = [];
 var alreadyGuessed = [];
 var winnerAlertsArray = [];
 var loserAlertsArray = [];
-// var randomWinnerAudioArray = [];
+var randomWinnerAudioArray = [];
+var randomLoserAudioArray = [];
 var wins = 0;
 var losses = 0;
-var guessesRemaining = 15;
+var guessesRemaining = 10;
 var playing = false;
 
 // Variables and ids from index.html
@@ -128,7 +137,10 @@ document.onkeyup = function(event) {
   loserAlertsArray = loserAlerts[Math.floor(Math.random() * loserAlerts.length)];
 
   // Trying to get a random audio file to play based on win or lose
-  // randomWinnerAudioArray = winnerAudioArray[Math.floor(Math.random() * winnerAudioArray.length)];
+  randomWinnerAudioArray = winnerAudioArray[Math.floor(Math.random() * winnerAudioArray.length)];
+
+  // Trying to get a random audio file to play based on win or lose
+  randomLoserAudioArray = loserAudioArray[Math.floor(Math.random() * loserAudioArray.length)];
 
   // Randomly picks a word from the words array
   spaceVocab = words[Math.floor(Math.random() * words.length)].split("");
@@ -187,17 +199,16 @@ document.onkeyup = function(event) {
         guesses.textContent = guessesRemaining;
         // console.log(alreadyGuessed);
 
-      // Check to see if player won and alerts random alert
+      // Check to see if player won and plays random audio from Winner array
       if (spaceVocab.join("") == dashes.join("")) {
-        // document.getElementById("audio-winner").src = “./assets/audio/winner”.join(“”)];
-        document.getElementById("audio-winner").play();
+        var audioWinner = document.getElementById("audio-winner");
+        audioWinner.src = (randomWinnerAudioArray);
+        audioWinner.play();
         alert(winnerAlertsArray);
         wins++;
         winsTotal.textContent = wins;
         reset();
       }
-
-
 
       } else {
       // Decerements the number of guesses left by one
@@ -207,7 +218,10 @@ document.onkeyup = function(event) {
 
       // If out of guesses, the player losses
       if (guessesRemaining === 0) {
-        document.getElementById("audio-loser").play();
+        var audioLoser = document.getElementById("audio-loser");
+        audioLoser.src = (randomLoserAudioArray);
+        // audioLoser = new Audio([randomLoserAudioArray]);
+        audioLoser.play();
         alert(loserAlertsArray);
         losses++;
 
@@ -224,7 +238,7 @@ function reset() {
   playing = false;
   dashes = [];
   alreadyGuessed = []
-  guessesRemaining = 15;
+  guessesRemaining = 10;
 }
 
 
