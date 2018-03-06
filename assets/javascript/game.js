@@ -93,6 +93,7 @@ var guesses = document.getElementById("guesses");
 
 $(document).ready(function(){
 
+  // This is the HANGMAN IN SPACE heading"
 	var tl = new TimelineLite()
 	,inter = 30
   ,speed = 1
@@ -130,6 +131,7 @@ document.onkeyup = function(event) {
 
 
 
+
   // Randomly picks an alert if you win
   winnerAlertsArray = winnerAlerts[Math.floor(Math.random() * winnerAlerts.length)];
 
@@ -161,28 +163,42 @@ document.onkeyup = function(event) {
           }
       }
 
-
-
-
   currentWord.textContent = dashes.join(" ");
   guesses.textContent = guessesRemaining;
   guessedLetters.textContent = alreadyGuessed;
+
+
+
 
   // Set playing value equal to true
   playing = true;
 
 }
 
-  // function printToScreen(htmlElement, newValue) {
-  //     htmlElement.innerHTML = newValue;
-  //     // console.log(newValue)
-  // }
+
 
   // React to letters entered if game is playing, the letter hasn’t been guessed yet, and the input is a letter
-  if (playing == true && alreadyGuessed.indexOf(event.key) == -1 && event.which <= 90 && event.which >= 65) {
+  if (playing == true && event.which <= 90 && event.which >= 65) {
+
+    if (alreadyGuessed.indexOf(event.key) !== -1) {
+    alert("You've already guessed the letter: " + event.key);
+    console.log(alreadyGuessed);
+    } else {
+
+
+
 
   // Add guessed keypress to guessed list
   alreadyGuessed.push(event.key);
+//
+//   document.addEventListener('keyPress', (event) => {
+//     if (event.key === alreadyGuessed[]) {
+//     alert("You've already guessed that letter!");
+//   }
+// });
+
+
+
 
     if(spaceVocab.indexOf(event.key) >= 0) {
 
@@ -228,10 +244,13 @@ document.onkeyup = function(event) {
         currentWord.textContent = spaceVocab.join("");
         lossTotal.textContent = losses;
         reset();
+        }
       }
     }
   }
 }
+
+
 
 // Resets game
 function reset() {
@@ -277,7 +296,7 @@ function reset() {
 
 
 
-  // if (alreadyGuessed.indexOf(key) !== -1) {
+  // if (alreadyGuessed.indexOf(guessedLetters) !== -1) {
   //   // console.log(alreadyGuessed)
   //   return;
   // }

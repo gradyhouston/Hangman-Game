@@ -351,11 +351,11 @@ html body #editor .typer .hint {
   color: #767676;
   cursor: default;
 } */
-/* html body #wrapper-in-space {
+html body #wrapper-in-space {
   position: absolute;
   width: 100%;
   height: 100%;
-} */
+}
 /* html body #wrapper-in-space .text:nth-child(30) {
   font-size: 120px;
 } */
