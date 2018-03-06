@@ -3,7 +3,8 @@
 body {
   background-image: url(../images/space_bg.jpg);
   font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
-  background-size: auto;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .game-wrapper {
@@ -256,9 +257,9 @@ html body #wrapper .text:nth-child(1) {
 }
 html body #wrapper .text {
   cursor: default;
-  position: absolute;
+  position: fixed;
   height: 100%;
-  /* width: 2000px; */
+  width: 2000px;
   min-height: 100%;
   display: flex;
   justify-content: center;
@@ -271,7 +272,7 @@ html body #wrapper .text {
   transform: translate(-50%);
   letter-spacing: 10px;
   opacity: 0;
-  margin-top: -450px;
+  margin-top: -400px;
 }
 
 /* Below here is the second "In Space" CSS */
@@ -351,15 +352,18 @@ html body #editor .typer .hint {
   color: #767676;
   cursor: default;
 } */
-html body #wrapper-in-space {
+
+/* UNCOMMENT BELOW HERE FOR IN SPACE TO COME BACK */
+/* html body #wrapper-in-space {
   position: absolute;
   width: 100%;
   height: 100%;
-}
+} */
+/* Remember to comment out the 30th child */
 /* html body #wrapper-in-space .text:nth-child(30) {
   font-size: 120px;
 } */
-html body #wrapper-in-space .text:nth-child(29) {
+/* html body #wrapper-in-space .text:nth-child(29) {
   font-size: 117px;
 }
 html body #wrapper-in-space .text:nth-child(28) {
@@ -464,4 +468,4 @@ html body #wrapper-in-space .text {
   letter-spacing: 10px;
   opacity: 0;
   margin-top: -340px;
-}
+} */
