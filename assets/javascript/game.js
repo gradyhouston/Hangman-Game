@@ -90,6 +90,7 @@ var lossTotal = document.getElementById("losses");
 var currentWord = document.getElementById("current-word");
 var guessedLetters = document.getElementById("guessed-letters");
 var guesses = document.getElementById("guesses");
+var themes = document.getElementById("themes");
 
 $(document).ready(function(){
 
@@ -166,6 +167,8 @@ document.onkeyup = function(event) {
   currentWord.textContent = dashes.join(" ");
   guesses.textContent = guessesRemaining;
   guessedLetters.textContent = alreadyGuessed;
+  themes.textContent = " \n\ Space";
+
 
 
 
@@ -182,7 +185,7 @@ document.onkeyup = function(event) {
 
     if (alreadyGuessed.indexOf(event.key) !== -1) {
     alert("You've already guessed the letter: " + event.key);
-    console.log(alreadyGuessed);
+    // console.log(alreadyGuessed);
     } else {
 
 
