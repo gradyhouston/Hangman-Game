@@ -1,7 +1,7 @@
 
 Try to guess Space-themed words in this JavaScript Hangman game!
 
-To run localy:
+To run locally:
 
 Clone or download this git repository.
 
